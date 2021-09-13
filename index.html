@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop Bag Store</title>
+  <title>Shopping Store</title>
   <link rel="stylesheet" href="./css/style.css" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -48,18 +48,13 @@
     </div>
 
     <!-- Single Product Details ...  -->
-    <section>
+    <section style="margin: 0;">
         <div id="single-product-id"></div>
     </section>
 
     <!-- Start Display Or Show Searched All Results ... ...  -->
-    <section class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-12 col-sm-12">
-          <div id="search-product-result">
-          </div>
-        </div>
-      </div>
+    <section class="container" style="margin-bottom: 0;">
+          <div id="search-product-result"></div>
     </section>
 
 
@@ -116,7 +111,7 @@
               </tbody>
             </table>
             <div class="parces text-center">
-              <button class="btn btn-primary text-center">Buy Now</button>
+              <button id="place-order" onclick="placeOrder()" class="btn btn-primary text-center">Buy Now</button>
             </div>
           </div>
         </div>

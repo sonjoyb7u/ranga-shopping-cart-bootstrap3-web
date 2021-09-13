@@ -73,8 +73,16 @@ const displaySingleProduct = (product) => {
                       <img class="product-detail-image" src=${image}></img>
                     </div>
                     <div>
-                      <span class="badge" style="float: left">Rating: ${product.rating.rate}</span>
-                      <span class="badge" style="float: left">Rating Count: ${product.rating.count}</span>
+                      <div>
+                        <span class="badge" style="float: left; margin-left: 10px">
+                          Rating: ${product.rating.rate}
+                        </span>
+                      </div>
+                      <div>
+                        <span class="badge" style="float: right; margin-left: 10px">
+                          Rating Count: ${product.rating.count}
+                        </span>
+                      </div>
                     </div>
                     <div style="margin-top: 80px">
                       <h3>${product.title}</h3>
@@ -125,20 +133,24 @@ const displaySearchProducts = products => {
         const image = product.image;
         const div = document.createElement("div");
         div.classList.add("product");
-        div.innerHTML = `<div class="single-product mt-3">
-                            <div>
-                              <img class="product-image" src=${image}></img>
-                            </div>
-                            <div>
-                              <span class="badge" style="float: left">Rating: ${product.rating.rate}</span>
-                              <span class="badge" style="float: right">Rating Count: ${product.rating.count}</span>
-                            </div>
-                            <div style="margin-top: 30px">
-                              <h3>${product.title}</h3>
-                              <p>Category: ${product.category}</p>
-                              <h2>Price: $ ${product.price}</h2>
-                              <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-                              <button  onclick="productDetail(${product.id})" id="details-btn" class="btn btn-danger">Details</button>
+        div.innerHTML = `<div class="row">
+                          <div class="col-md-12 col-lg-12 col-sm-12">
+                              <div class="single-product mt-3">
+                                <div>
+                                  <img class="product-image" src=${image}></img>
+                                </div>
+                                <div>
+                                  <span class="badge" style="float: left;">Rating: ${product.rating.rate}</span>
+                                  <span class="badge" style="float: right;">Rating Count: ${product.rating.count}</span>
+                                </div>
+                                <div style="margin-top: 30px">
+                                  <h3>${product.title}</h3>
+                                  <p>Category: ${product.category}</p>
+                                  <h2>Price: $ ${product.price}</h2>
+                                  <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+                                  <button  onclick="productDetail(${product.id})" id="details-btn" class="btn btn-danger">Details</button>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         `;
@@ -216,6 +228,19 @@ const updateTotal = () => {
 
 
 loadProducts();
+
+
+const placeOrder = () => {
+  const totalCostText = document.getElementById("total").innerText;
+  const totalCost = +totalCostText;
+  if(totalCost > 0) {
+    window.location.href = '../place-order.html'
+  }
+  else {
+    alert('Please, Add To Cart Any Product!!!')
+  }
+  
+}
 
 
 
