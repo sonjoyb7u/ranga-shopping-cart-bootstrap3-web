@@ -1,4 +1,4 @@
-const displaySearchProductContainer = document.getElementById('search-books-result');
+const displaySearchProductContainer = document.getElementById('search-product-result');
 const singleProductContainer = document.getElementById('single-product-id')
 // Get Error Message Id ... ...
 const errorMsg = document.getElementById("error-msg");
@@ -64,6 +64,7 @@ const productDetail = async (proId) => {
 
 // Display Single Product Details ...
 const displaySingleProduct = (product) => {
+  // console.log(product);
   singleProductContainer.textContent = ''
   const image = product.image;
   const div = document.createElement("div");
@@ -106,7 +107,6 @@ const searchProducts = () => {
       searchField.value = ''; 
       const serachProducts = data.filter(product => product.title.includes(searchText))
       displaySearchProducts(serachProducts)
-
     }
     else {
       // alert('Search Box Is Empty, Please Enter Your Product Name!!!');
@@ -115,7 +115,6 @@ const searchProducts = () => {
                               <strong>Search Field Is Empty!</strong> Please, Type Your Favorite Product Name & Try Again To Search...
                             </div>
                           `;
-      hideSpinner();
          
     }
 
@@ -125,7 +124,7 @@ const searchProducts = () => {
 const displaySearchProducts = products => {
     // console.log(products);
     // displaySearchProductContainer.innerHTML = ''; // Old Process
-    // displaySearchProductContainer.textContent = '';
+    displaySearchProductContainer.textContent = '';
     if(products.length > 0) {
         showSpinner();
         errorMsg.innerHTML = "";
@@ -230,6 +229,7 @@ const updateTotal = () => {
 loadProducts();
 
 
+// Place Ordering Or Buying Product ...
 const placeOrder = () => {
   const totalCostText = document.getElementById("total").innerText;
   const totalCost = +totalCostText;
