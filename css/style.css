@@ -1,12 +1,20 @@
 body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
+
+}
+.main {
+    background-color: #fafafd;
+}
+section {
+  margin-bottom: 50px;
 }
 .search-field {
   border: none;
   border-radius: 50px;
   padding: 5px;
   outline: none;
+  background-color: transparent;
 }
 .search-field:hover {
   outline: none;
@@ -14,7 +22,7 @@ body {
 }
 .search-box {
   border: 1px solid rgb(3, 118, 211);
-  width: 281px;
+  width: 500px;
   border-radius: 5px;
   margin: auto;
   margin-top: 50px;
@@ -23,7 +31,7 @@ body {
 .search-button {
   padding: 10px 50px;
   border-radius: 25px;
-  margin-left: 20px;
+  margin-left: 275px;
 }
 #all-products {
   display: grid;
@@ -34,10 +42,31 @@ body {
   margin: auto;
   align-items: center;
   justify-content: center;
+  box-shadow: 5px 5px 15px gray;
+  padding: 20px;
+  border-radius: 5px;
+}
+#search-product-result {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* border: 1px solid black; */
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: 5px 5px 15px gray; */
+  padding: 20px;
+  border-radius: 5px;
+}
+.product {
+  margin: 5px;
+  border-radius: 5px;
 }
 .single-product {
   padding: 10px;
   transition: 0.6s;
+  border-radius: 10px;
 }
 .single-product:hover {
   box-shadow: 4px 4px 7px gray;
@@ -47,6 +76,31 @@ body {
 .product-image {
   width: 150px;
   height: 150px;
+  margin-bottom: 25px;
+}
+/* Single Product Detail Style ...  */
+.product-detail {
+  margin: 5px;
+  border-radius: 5px;
+}
+.single-product-detail {
+  width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  transition: 0.6s;
+  border: 1px dashed grey;
+  border-radius: 10px;
+}
+.single-product-detail:hover {
+  box-shadow: 4px 4px 7px gray;
+  border-radius: 10px;
+  border: 1px solid cyan;
+}
+.product-detail-image {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 25px;
 }
 .cart {
   width: 350px;
@@ -59,6 +113,27 @@ body {
 }
 .cart-main {
   padding-right: 30px;
+}
+/* Spinner Overlay Style ...  */
+#spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 30px;
+  color: rgb(241, 149, 10);
+}
+#overlay {
+  position: fixed;
+  display: block; 
+  width: 100%; 
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(140, 184, 184, 0.3);
+  z-index: 2;
+  cursor: pointer;
 }
 @media only screen and (max-width: 768px) {
   #all-products {
